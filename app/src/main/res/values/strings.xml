@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Project Android</string>
+    <string name="Phone_Text">Phone</string>
+    <string name="Message">Message :</string>
+    <string name="Next">Next</string>
+    <string name="back_text">Back</string>
+</resources>
