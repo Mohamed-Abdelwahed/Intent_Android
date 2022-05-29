@@ -6,10 +6,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.Preference;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.example.projectandroid.DB.DatabaseAdapter;
+import com.example.projectandroid.DB.Phone_MessageDTO;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -36,6 +38,10 @@ FileInputStream fis;
 DataInputStream dis;
 FileOutputStream fos;
 DataOutputStream dos;
+
+
+Button btnWritSql;
+Button btnReadSql;
 
 public static final String FILE_NAME = "PHONE_MESSAGE";
 
@@ -125,6 +131,30 @@ public static final String FILE_NAME = "PHONE_MESSAGE";
                     e.printStackTrace();
                 }
 
+            }
+        });
+
+
+        btnWritSql = (Button) findViewById(R.id.writeToSql);
+        btnWritSql.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DatabaseAdapter adapter = new DatabaseAdapter(DataShow.this);
+                adapter.addEntry(new Phone_MessageDTO(txtPhone.getText().toString(),txtMessage.getText().toString()));
+                txtPhone.setText("");
+                txtMessage.setText("");
+
+            }
+        });
+
+        btnReadSql = (Button) findViewById(R.id.readFromSql);
+        btnReadSql.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DatabaseAdapter adapter = new DatabaseAdapter(DataShow.this);
+                Phone_MessageDTO result = adapter.getEntry();
+                txtPhone.setText(result.getPhone());
+                txtMessage.setText(result.getMessage());
             }
         });
 
