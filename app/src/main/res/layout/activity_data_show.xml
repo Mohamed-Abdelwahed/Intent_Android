@@ -7,11 +7,13 @@
     android:gravity="center"
     android:orientation="vertical"
     android:padding="20dp"
+    android:weightSum="5"
     tools:context=".DataShow">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="200px"
+        android:layout_weight="1"
         android:gravity="center"
         android:orientation="horizontal">
 
@@ -37,6 +39,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="200px"
+        android:layout_weight="1"
         android:gravity="center"
         android:orientation="horizontal">
 
@@ -55,12 +58,59 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:height="150px" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <Button
+            android:id="@+id/readSharedPrefrences"
+            android:layout_width="167dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Read Data"
+            android:verticalScrollbarPosition="defaultPosition" />
+
+        <Button
+            android:id="@+id/writeSharedPrefrences"
+            android:layout_width="194dp"
+            android:layout_height="wrap_content"
+            android:text="Write Data" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <Button
+            android:id="@+id/writeToFile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="write to file" />
+
+        <Button
+            android:id="@+id/readToFile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Read from file" />
     </LinearLayout>
 
     <Button
         android:id="@+id/btnBack"
         android:layout_width="match_parent"
-        android:layout_height="150px"
+        android:layout_height="50px"
         android:layout_marginTop="20dp"
+        android:layout_weight="1"
         android:text="@string/back_text" />
+
 </LinearLayout>
